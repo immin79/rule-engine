@@ -1,4 +1,4 @@
-package com.kakaobank.model.log;
+package com.immin79.model.log;
 
 /**
  * Created by bryan.79 on 2017. 7. 7..

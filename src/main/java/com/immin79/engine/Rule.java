@@ -1,6 +1,6 @@
-package com.kakaobank.engine;
+package com.immin79.engine;
 
-import com.kakaobank.model.log.BaseUserLog;
+import com.immin79.model.log.BaseUserLog;
 
 import java.util.List;
 

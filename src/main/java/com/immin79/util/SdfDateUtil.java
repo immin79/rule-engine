@@ -1,4 +1,4 @@
-package com.kakaobank.util;
+package com.immin79.util;
 
 import java.text.DateFormat;
 import java.text.ParseException;

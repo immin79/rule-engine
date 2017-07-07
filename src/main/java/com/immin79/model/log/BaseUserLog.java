@@ -1,4 +1,4 @@
-package com.kakaobank.model.log;
+package com.immin79.model.log;
 
 import java.util.Date;
 

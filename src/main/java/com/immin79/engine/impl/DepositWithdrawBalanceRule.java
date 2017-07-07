@@ -1,8 +1,12 @@
-package com.kakaobank.engine.impl;
+package com.immin79.engine.impl;
 
-import com.kakaobank.engine.Rule;
-import com.kakaobank.model.log.*;
-import com.kakaobank.util.DateUtil;
+
+import com.immin79.engine.Rule;
+import com.immin79.model.log.BaseUserLog;
+import com.immin79.model.log.DepositUserLog;
+import com.immin79.model.log.SendUserLog;
+import com.immin79.model.log.WithdrawUserLog;
+import com.immin79.util.DateUtil;
 
 import java.math.BigDecimal;
 import java.util.Collections;
@@ -87,7 +91,7 @@ public class DepositWithdrawBalanceRule extends Rule {
                 balance = balance.subtract(((WithdrawUserLog) baseUserLog).getAmount());
             }
             // 송금 이벤트
-            else if (baseUserLog instanceof  SendUserLog) {
+            else if (baseUserLog instanceof SendUserLog) {
                 balance = balance.subtract(((WithdrawUserLog) baseUserLog).getAmount());
             }
 

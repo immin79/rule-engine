@@ -1,4 +1,4 @@
-package com.kakaobank.util;
+package com.immin79.util;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;

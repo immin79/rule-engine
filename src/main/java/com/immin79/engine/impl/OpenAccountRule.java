@@ -1,9 +1,10 @@
-package com.kakaobank.engine.impl;
+package com.immin79.engine.impl;
 
-import com.kakaobank.engine.Rule;
-import com.kakaobank.model.log.BaseUserLog;
-import com.kakaobank.model.log.OpenAccountUserLog;
-import com.kakaobank.util.DateUtil;
+
+import com.immin79.engine.Rule;
+import com.immin79.model.log.BaseUserLog;
+import com.immin79.model.log.OpenAccountUserLog;
+import com.immin79.util.DateUtil;
 
 import java.util.Collections;
 import java.util.Date;

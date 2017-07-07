@@ -1,11 +1,11 @@
-package com.kakaobank.engine;
+package com.immin79.engine;
 
-import com.kakaobank.engine.impl.DepositWithdrawBalanceRule;
-import com.kakaobank.model.log.BaseUserLog;
-import com.kakaobank.model.log.DepositUserLog;
-import com.kakaobank.model.log.OpenAccountUserLog;
-import com.kakaobank.model.log.WithdrawUserLog;
-import com.kakaobank.util.SdfDateUtil;
+import com.immin79.engine.impl.DepositWithdrawBalanceRule;
+import com.immin79.model.log.BaseUserLog;
+import com.immin79.model.log.DepositUserLog;
+import com.immin79.model.log.OpenAccountUserLog;
+import com.immin79.model.log.WithdrawUserLog;
+import com.immin79.util.SdfDateUtil;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
