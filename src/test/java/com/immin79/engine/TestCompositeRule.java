@@ -61,13 +61,18 @@ public class TestCompositeRule {
 
         DepositWithdrawBalanceRule depositWithdrawBalanceRule = new DepositWithdrawBalanceRule(gteDepositAmount, lteDepositAmount, withinHoursAfterDeposit, lteBalance);
 
-
+        /**
+         * Final step : composite Rule Generation
+         */
         CompositeRule compositeRule = new CompositeRule();
         compositeRule.add(openAccountRule);
         compositeRule.add(depositWithdrawBalanceRule);
 
         compositeRule.setBaseUserLogList(baseUserLogList);
 
+        /**
+         * check rule
+         */
         boolean result = compositeRule.evaluate();
 
         if(DateUtil.dayDiff(openAccountDate, new Date()) > withinDays)
@@ -96,13 +101,18 @@ public class TestCompositeRule {
 
         DepositWithdrawBalanceRule depositWithdrawBalanceRule = new DepositWithdrawBalanceRule(gteDepositAmount, lteDepositAmount, withinHoursAfterDeposit, lteBalance);
 
-
+        /**
+         * Final step : composite Rule Generation
+         */
         CompositeRule compositeRule = new CompositeRule();
         compositeRule.add(openAccountRule);
         compositeRule.add(depositWithdrawBalanceRule);
 
         compositeRule.setBaseUserLogList(baseUserLogList);
 
+        /**
+         * check rule
+         */
         boolean result = compositeRule.evaluate();
 
         Assert.assertFalse(result);
@@ -128,13 +138,18 @@ public class TestCompositeRule {
 
         DepositWithdrawBalanceRule depositWithdrawBalanceRule = new DepositWithdrawBalanceRule(gteDepositAmount, lteDepositAmount, withinHoursAfterDeposit, lteBalance);
 
-
+        /**
+         * Final step : composite Rule Generation
+         */
         CompositeRule compositeRule = new CompositeRule();
         compositeRule.add(openAccountRule);
         compositeRule.add(depositWithdrawBalanceRule);
 
         compositeRule.setBaseUserLogList(baseUserLogList);
 
+        /**
+         * check rule
+         */
         boolean result = compositeRule.evaluate();
 
         Assert.assertFalse(result);
