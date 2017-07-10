@@ -2,6 +2,7 @@ package com.immin79.engine;
 
 
 import com.immin79.model.log.BaseUserLog;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,8 @@ import java.util.List;
  * Created by bryan.79 on 2017. 7. 7..
  */
 public class CompositeRule extends Rule {
+
+    final static Logger logger = Logger.getLogger(CompositeRule.class);
 
     private List<Rule> ruleList;
 
@@ -37,29 +40,24 @@ public class CompositeRule extends Rule {
     }
 
     @Override
-    public boolean evaluate() {
+    public boolean evaluate(List<BaseUserLog> baseUserLogList) {
+
+        logger.debug(this.getName() + " evaluate is called.");
+        logger.debug(" - " + this.getDescription());
 
         // 특정 룰이 없으면 사용자 Detection 하지 않음
-        if(ruleList == null)
+        if(ruleList == null) {
+            logger.error("There is no Rule! Please add rule to CompositeRule.");
             return false;
+        }
 
         for(Rule rule : ruleList) {
 
-            if(rule.evaluate() == false)
+            if(rule.evaluate(baseUserLogList) == false)
                 return false;
         }
 
         // 모든 룰에 해당할 경우에만 true 반환
         return true;
-    }
-
-    public void setBaseUserLogList(List<BaseUserLog> baseUserLogList) {
-
-        if(ruleList == null)
-            return;
-
-        for(Rule rule : ruleList) {
-            rule.setBaseUserLogList(baseUserLogList);
-        }
     }
 }

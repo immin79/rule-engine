@@ -1,6 +1,6 @@
 package com.immin79.model.log;
 
-import java.util.Date;
+import java.time.ZonedDateTime;
 
 /**
  * Created by bryan.79 on 2017. 7. 7..
@@ -14,7 +14,7 @@ import java.util.Date;
  */
 public class OpenAccountUserLog extends BaseUserLog {
 
-    public OpenAccountUserLog(Date logDate, long customerId, String accountNum) {
+    public OpenAccountUserLog(ZonedDateTime logDate, long customerId, String accountNum) {
 
         super(logDate, customerId, accountNum);
     }

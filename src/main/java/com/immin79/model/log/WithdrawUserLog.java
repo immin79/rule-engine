@@ -5,7 +5,7 @@ package com.immin79.model.log;
  */
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.ZonedDateTime;
 
 /**
  * 출금 이벤트
@@ -26,7 +26,7 @@ public class WithdrawUserLog extends BaseUserLog {
         return this.amount;
     }
 
-    public WithdrawUserLog(Date logDate, long customerId, String accountNum, BigDecimal amount) {
+    public WithdrawUserLog(ZonedDateTime logDate, long customerId, String accountNum, BigDecimal amount) {
 
         super(logDate, customerId, accountNum);
         this.amount = amount;

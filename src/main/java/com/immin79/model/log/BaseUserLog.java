@@ -1,6 +1,6 @@
 package com.immin79.model.log;
 
-import java.util.Date;
+import java.time.ZonedDateTime;
 
 /**
  * Created by bryan.79 on 2017. 7. 7..
@@ -20,9 +20,9 @@ public class BaseUserLog implements Comparable<BaseUserLog> {
     /**
      * 발생 일시
      */
-    private Date logDate;
+    private ZonedDateTime logDate;
 
-    public Date getLogDate() {
+    public ZonedDateTime getLogDate() {
 
         return this.logDate;
     }
@@ -47,7 +47,7 @@ public class BaseUserLog implements Comparable<BaseUserLog> {
         return this.accountNum;
     }
 
-    public BaseUserLog(Date logDate, long customerId, String accountNum) {
+    public BaseUserLog(ZonedDateTime logDate, long customerId, String accountNum) {
 
         this.logDate = logDate;
         this.customerId = customerId;

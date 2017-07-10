@@ -6,11 +6,13 @@ import com.immin79.model.log.BaseUserLog;
 import com.immin79.model.log.DepositUserLog;
 import com.immin79.model.log.SendUserLog;
 import com.immin79.model.log.WithdrawUserLog;
-import com.immin79.util.DateUtil;
+import com.immin79.util.ZonedDateTimeUtil;
+import org.apache.log4j.Logger;
 
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import java.util.Collections;
-import java.util.Date;
+import java.util.List;
 
 /**
  * Created by bryan.79 on 2017. 7. 7..
@@ -19,6 +21,8 @@ import java.util.Date;
  * e.g. 90~100만원 입금 된 후에 2시간 이내 출금되어 잔액이 1만원 이하
  */
 public class DepositWithdrawBalanceRule extends Rule {
+
+    final static Logger logger = Logger.getLogger(DepositWithdrawBalanceRule.class);
 
     /**
      * 입금 금액 조건 1 : GTE(Greater than equal) (~원 이상)
@@ -59,17 +63,22 @@ public class DepositWithdrawBalanceRule extends Rule {
     }
 
     @Override
-    public boolean evaluate() {
+    public boolean evaluate(List<BaseUserLog> baseUserLogList) {
 
-        if(baseUserLogList == null)
+        logger.debug(this.getName() + " evaluate is called.");
+        logger.debug(" - " + this.getDescription());
+
+        if(baseUserLogList == null) {
+            logger.warn("There is no user logs!");
             return false;
+        }
 
         // TODO 정렬 데이터일 경우, 주석 처리 할 것!
         Collections.sort(baseUserLogList);
 
         BigDecimal balance = new BigDecimal(0);
 
-        Date depositLatestDate = null;
+        ZonedDateTime depositLatestDate = null;
 
         for(BaseUserLog baseUserLog : baseUserLogList) {
 
@@ -92,11 +101,11 @@ public class DepositWithdrawBalanceRule extends Rule {
             }
             // 송금 이벤트
             else if (baseUserLog instanceof SendUserLog) {
-                balance = balance.subtract(((WithdrawUserLog) baseUserLog).getAmount());
+                balance = balance.subtract(((SendUserLog) baseUserLog).getAmount());
             }
 
             if(depositLatestDate != null) {
-                long hourDiff = DateUtil.hourDiff(depositLatestDate, baseUserLog.getLogDate());
+                long hourDiff = ZonedDateTimeUtil.hourDiff(depositLatestDate, baseUserLog.getLogDate());
 
                 if(hourDiff > withinHoursAfterDeposit) {
 

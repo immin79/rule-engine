@@ -5,7 +5,7 @@ package com.immin79.model.log;
  */
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.ZonedDateTime;
 
 /**
  * 이체 이벤트
@@ -57,7 +57,7 @@ public class SendUserLog extends BaseUserLog {
     }
 
 
-    public SendUserLog(Date logDate, long customerId, String accountNum, BigDecimal balanceBeforeSend, long receivingBank, String receivingAccountName, BigDecimal amount) {
+    public SendUserLog(ZonedDateTime logDate, long customerId, String accountNum, BigDecimal balanceBeforeSend, long receivingBank, String receivingAccountName, BigDecimal amount) {
         super(logDate, customerId, accountNum);
 
         this.balanceBeforeSend = balanceBeforeSend;

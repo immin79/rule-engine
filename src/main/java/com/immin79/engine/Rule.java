@@ -9,13 +9,6 @@ import java.util.List;
  */
 public abstract class Rule {
 
-    protected List<BaseUserLog> baseUserLogList;
-
-    public void setBaseUserLogList(List<BaseUserLog> baseUserLogList) {
-
-        this.baseUserLogList = baseUserLogList;
-    }
-
     public abstract String getName();
 
     public abstract String getDescription();
@@ -24,5 +17,5 @@ public abstract class Rule {
      * 특정 룰을 해당되면 true, 해당되지 않으면 false
      * @return
      */
-    public abstract boolean evaluate();
+    public abstract boolean evaluate(List<BaseUserLog> baseUserLogList);
 }
