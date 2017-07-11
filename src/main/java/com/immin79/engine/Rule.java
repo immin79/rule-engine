@@ -14,8 +14,9 @@ public abstract class Rule {
     public abstract String getDescription();
 
     /**
-     * 특정 룰을 해당되면 true, 해당되지 않으면 false
-     * @return
+     *
+     * @param baseUserLogList 사용자 이벤트 로그 리스트
+     * @return 특정 룰을 해당되면 true, 해당되지 않으면 false
      */
     public abstract boolean evaluate(List<BaseUserLog> baseUserLogList);
 }

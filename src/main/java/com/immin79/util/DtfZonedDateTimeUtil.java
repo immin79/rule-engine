@@ -9,15 +9,13 @@ import java.time.format.DateTimeFormatter;
  */
 public class DtfZonedDateTimeUtil {
 
-    public static void main(String[] args) {
-
-        String dateStr = "2017-07-10 10:21:00";
-
-        System.out.println(convertZonedDateTime(dateStr));
-    }
-
     public static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
+    /**
+     *
+     * @param dateStr yyyy-MM-dd HH:mm:ss 포맷의 날짜 스트링
+     * @return ZoendDateTime Type의 날짜
+     */
     public static ZonedDateTime convertZonedDateTime(String dateStr) {
 
         return ZonedDateTime.parse(dateStr, dtf.withZone(ZoneId.systemDefault()));
