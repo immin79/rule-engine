@@ -17,7 +17,7 @@ public class ZonedDateTimeUtil {
      */
     public static long dayDiff(ZonedDateTime date1, ZonedDateTime date2) {
 
-        return ChronoUnit.DAYS.between(date1, date2);
+        return Math.abs(ChronoUnit.DAYS.between(date1, date2));
     }
 
 
@@ -30,6 +30,6 @@ public class ZonedDateTimeUtil {
      */
     public static long hourDiff(ZonedDateTime date1, ZonedDateTime date2) {
 
-        return ChronoUnit.HOURS.between(date1, date2);
+        return Math.abs(ChronoUnit.HOURS.between(date1, date2));
     }
 }
